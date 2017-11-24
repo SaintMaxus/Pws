@@ -7,6 +7,7 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 PINK = (255, 0, 255)
 GREEN = (0, 255, 0)
+RED = (255, 0, 0)
 #beeldzaken
 size = (700, 700)
 screen = pygame.display.set_mode(size)
@@ -85,8 +86,8 @@ def wallhorz(screen, x, y):
 while mainscreen:
     lettertype=pygame.font.SysFont("comicsansms", 50)
     lettertype2=pygame.font.SysFont("comicsansms", 30)
-    label=lettertype.render("WELCOME TO THE GAME", 1, (255, 0, 0))
-    label2=lettertype2.render("Press any key to continue", 1, (255, 0, 0))
+    label=lettertype.render("WELCOME TO THE GAME", 1, RED)
+    label2=lettertype2.render("Press any key to continue", 1, RED)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
                 mainscreen = False
@@ -99,10 +100,10 @@ while mainscreen:
 #levelselect   
 while levelselect:
     lettertype = pygame.font.SysFont("comicsansms", 30)
-    label = lettertype.render("Press the number of the level", 1, (255, 0, 0))
-    label2 = lettertype.render("you want to play", 1, (255, 0, 0))
-    label3 = lettertype.render("LEVEL 1: 1 BRICK", 1, (255, 0, 0))
-    label4 = lettertype.render("LEVEL 2: 4 PLATFORMS 1 BRICK", 1, (255, 0, 0))
+    label = lettertype.render("Press the number of the level", 1, RED)
+    label2 = lettertype.render("you want to play", 1, RED)
+    label3 = lettertype.render("LEVEL 1: 1 BRICK", 1, RED)
+    label4 = lettertype.render("LEVEL 2: 4 PLATFORMS 1 BRICK", 1, RED)
     for event in pygame.event.get():
         #zo kan je het spel stoppen
         if event.type == pygame.QUIT:
@@ -299,9 +300,9 @@ while level_2:
 while game_over:
     lettertype=pygame.font.SysFont("comicsansms", 50)
     lettertype2=pygame.font.SysFont("comicsansms", 30)
-    label=lettertype.render("GAME OVER", 1, (255, 0, 0))
-    label2=lettertype2.render("Press any key to QUIT", 1, (255, 0, 0))
-    label3=lettertype2.render("Your score was: " + str(int(score)), 1, (255, 0, 0))
+    label=lettertype.render("GAME OVER", 1, RED)
+    label2=lettertype2.render("Press any key to QUIT", 1, RED)
+    label3=lettertype2.render("Your score was: " + str(int(score)), 1, RED)
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
                 
@@ -312,6 +313,7 @@ while game_over:
     screen.blit(label3, (180, 400))
     pygame.display.flip()
 pygame.quit()
+
 
 
 
