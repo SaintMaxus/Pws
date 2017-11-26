@@ -107,7 +107,7 @@ while levelselect:
     for event in pygame.event.get():
         #zo kan je het spel stoppen
         if event.type == pygame.QUIT:
-            level_2 = False
+            levelselect = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_1:
                 levelselect = False
@@ -332,6 +332,7 @@ while game_over:
     screen.blit(label3, (180, 400))
     pygame.display.flip()
 pygame.quit()
+
 
 
 
