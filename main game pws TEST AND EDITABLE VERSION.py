@@ -166,9 +166,9 @@ while level_1:
     brick_rect4 = pygame.Rect(brick_x + brick_width - 2, brick_y, 2, brick_height)
     #als de bal ergens tegen aanbotst
     if ball_rect.colliderect(paddle_rect):
-        collisionpoint = -40
+        collisionpoint = -(paddle_width/2)
         collisionpoint += (ball_x - paddle_x)
-        speed_change = (collisionpoint/40) * ball_change
+        speed_change = (collisionpoint/(paddlewidth/2)) * ball_change
         ball_speed_y = -(abs((ball_speed_y + speed_change)))
         ball_speed_x = ball_speed_x + speed_change
     
@@ -212,13 +212,13 @@ while level_2:
         #als je een toets indrukt
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
-                paddle_speed_x = -3
+                paddle_speed_x = -5
             elif event.key == pygame.K_RIGHT:
-                paddle_speed_x = 3
+                paddle_speed_x = 5
             elif event.key == pygame.K_UP:
-                paddle_speed_y = -3
+                paddle_speed_y = -5
             elif event.key == pygame.K_DOWN:
-                paddle_speed_y = 3
+                paddle_speed_y = 5
         elif event.type == pygame.KEYUP:
             if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                 paddle_speed_x = 0
@@ -258,13 +258,32 @@ while level_2:
     brick_rect4 = pygame.Rect(brick_x + brick_width - 2, brick_y, 2, brick_height)
     #als de bal ergens tegen aanbotst
     if ball_rect.colliderect(paddle_rect):
-        ball_speed_y = -ball_speed_y
+        collisionpoint = -(paddle_width/2)
+        collisionpoint += (ball_x - paddle_x)
+        speed_change = (collisionpoint/(paddle_width/2)) * ball_change
+        ball_speed_y = -(abs((ball_speed_y + speed_change)))
+        ball_speed_x = ball_speed_x + speed_change
     if ball_rect.colliderect(paddle2_rect):
-        ball_speed_y = -ball_speed_y
+        collisionpoint = -(paddle_width/2)
+        collisionpoint += (ball_x - paddle_x)
+        speed_change = (collisionpoint/(paddle_width/2)) * ball_change
+        ball_speed_y = (abs((ball_speed_y + speed_change)))
+        ball_speed_x = ball_speed_x + speed_change
+        
     if ball_rect.colliderect(paddle3_rect):
-        ball_speed_x = -ball_speed_x
+        collisionpoint = -(paddle_width/2)
+        collisionpoint += (ball_y - paddle3_y)
+        speed_change = (collisionpoint/(paddle_width/2)) * ball_change
+        ball_speed_x = (abs((ball_speed_x + speed_change)))
+        ball_speed_y = ball_speed_y + speed_change
+        
     if ball_rect.colliderect(paddle4_rect):
-        ball_speed_x = -ball_speed_x
+        collisionpoint = -(paddle_width/2)
+        collisionpoint += (ball_y - paddle4_y)
+        speed_change = (collisionpoint/(paddle_width/2)) * ball_change
+        ball_speed_x = -(abs((ball_speed_x + speed_change)))
+        ball_speed_y = ball_speed_y + speed_change
+        
     if ball_rect.colliderect(brick_rect1):
         ball_speed_x = -ball_speed_x
         score += 1
