@@ -168,7 +168,7 @@ while level_1:
     if ball_rect.colliderect(paddle_rect):
         collisionpoint = -(paddle_width/2)
         collisionpoint += (ball_x - paddle_x)
-        speed_change = (collisionpoint/(paddlewidth/2)) * ball_change
+        speed_change = (collisionpoint/(paddle_width/2)) * ball_change
         ball_speed_y = -(abs((ball_speed_y + speed_change)))
         ball_speed_x = ball_speed_x + speed_change
     
