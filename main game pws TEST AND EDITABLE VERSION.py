@@ -26,7 +26,7 @@ ball_y = 540
 ball_radius = 10
 ball_color = GREEN
 ball_speed_total = 6
-ball_speed_x = random.randrange(-1,1,2) * (math.sqrt((ball_speed_total **2) - (random.randrange(1, 36, 1))))
+ball_speed_x = random.randrange(-1,1,2) * (math.sqrt((ball_speed_total **2) - (random.randrange(0, 35, 1))))
 ball_speed_y = -(math.sqrt((ball_speed_total **2) - abs((ball_speed_x **2))))
 ball_change = 3
 def ball(screen, x, y):
