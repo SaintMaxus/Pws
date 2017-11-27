@@ -83,6 +83,15 @@ def wallvert(screen, x, y):
 def wallhorz(screen, x, y):
     pygame.draw.rect(screen, wall_color, [x, y, wall_height, wall_width], 0)
 
+#achtergrondboom
+def drawTree(x1, y1, angle, depth, color):
+    if depth:
+        x2 = x1 + int(math.cos(math.radians(angle)) * depth * 10.0)
+        y2 = y1 + int(math.sin(math.radians(angle)) * depth * 10.0)
+        pygame.draw.line(screen, color, (x1, y1), (x2, y2), 2)
+        drawTree(x2, y2, angle - 20, depth - 1, color)
+        drawTree(x2, y2, angle + 20, depth - 1, color)
+        
 while mainscreen:
     lettertype=pygame.font.SysFont("comicsansms", 50)
     lettertype2=pygame.font.SysFont("comicsansms", 30)
@@ -93,8 +102,9 @@ while mainscreen:
                 mainscreen = False
                 levelselect = True
     screen.fill(BLACK)
-    screen.blit(label,(40,250))
-    screen.blit(label2,(170,450))
+    drawTree(350, 550, -90, 9, WHITE)
+    screen.blit(label,(40,50))
+    screen.blit(label2,(160,480))
     pygame.display.flip()
     
 #levelselect   
@@ -116,6 +126,7 @@ while levelselect:
                 levelselect = False
                 level_2 = True
     screen.fill(BLACK)
+    drawTree(350, 700, -90, 9, WHITE)
     screen.blit(label,(50,50))
     screen.blit(label2,(50,80))
     screen.blit(label3,(50,150))
@@ -191,6 +202,7 @@ while level_1:
     
     #uitvoeren van de functies die alle voorwerpen tekenen en maken
     screen.fill(WHITE)
+    drawTree(340, 610, -90, 9,BLACK)
     paddle(screen, paddle_x, paddle_y)
     wallvert(screen, wall1_x, wall1_y)
     wallvert(screen, wall2_x, wall2_y)
@@ -302,6 +314,7 @@ while level_2:
     
     #uitvoeren van de functies die alle voorwerpen tekenen en maken
     screen.fill(WHITE)
+    drawTree(340, 610, -90, 9,BLACK)
     paddle(screen, paddle_x, paddle_y)
     paddle(screen, paddle2_x, paddle2_y)
     paddlevertical(screen, paddle3_x, paddle3_y)
@@ -327,11 +340,13 @@ while game_over:
                 
                 game_over = False
     screen.fill(BLACK)
-    screen.blit(label,(200,250))
-    screen.blit(label2,(180,450))
-    screen.blit(label3, (180, 400))
+    drawTree(350, 550, -90, 9, WHITE)
+    screen.blit(label,(200,50))
+    screen.blit(label2,(180,490))
+    screen.blit(label3, (200,450))
     pygame.display.flip()
 pygame.quit()
+
 
 
 
