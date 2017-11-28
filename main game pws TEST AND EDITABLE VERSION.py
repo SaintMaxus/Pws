@@ -95,8 +95,11 @@ def drawTree(x1, y1, angle, depth, color):
 while mainscreen:
     lettertype=pygame.font.SysFont("comicsansms", 50)
     lettertype2=pygame.font.SysFont("comicsansms", 30)
+    lettertype3=pygame.font.SysFont("comicsansms",22)
     label=lettertype.render("WELCOME TO THE GAME", 1, RED)
     label2=lettertype2.render("Press any key to continue", 1, RED)
+    label3=lettertype3.render("Door: Max Minnema 6B",1,PINK)
+    
     for event in pygame.event.get():
         if event.type == pygame.KEYDOWN:
                 mainscreen = False
@@ -105,6 +108,7 @@ while mainscreen:
     drawTree(350, 550, -90, 9, WHITE)
     screen.blit(label,(40,50))
     screen.blit(label2,(160,480))
+    screen.blit(label3,(220,550))
     pygame.display.flip()
     
 #levelselect   
